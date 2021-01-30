@@ -1,24 +1,5 @@
-# README
+# Coffee Talk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Coffee Talk is a web based app where you can read and post reviews of coffee beans.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To install, fork and clone this repository. Start app in rails server, or local host of your choice.
