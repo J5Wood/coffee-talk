@@ -1,0 +1,9 @@
+<h1>All Coffees:</h1>
+<br>
+<ul>
+<% @coffees.all.each do |coffee| %>
+    <li><%= link_to coffee.name, coffee_path(coffee) %> - <%= render partial: "stars", locals: {coffee: coffee} %></li>
+    Roast: <%= coffee.roast_level %>
+    <br><br>
+<% end %>
+</ul>
