@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   root "welcome#home"
 
-  get "login" => "sessions#create"
+  get "login" => "sessions#new"
+  post "login" => "sessions#create"
+  post "logout" => "sessions#delete"
   
   resources :coffees do
     resources :reviews, only: [:new, :edit]
