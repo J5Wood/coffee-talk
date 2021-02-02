@@ -46,7 +46,9 @@ class CoffeesController < ApplicationController
         @coffee = Coffee.find_by(id: params[:id])
     end
 
-    def delete
+    def destroy
+        Coffee.find_by(id: params[:id]).destroy
+        redirect_to coffees_path
     end
 
     private

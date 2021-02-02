@@ -5,3 +5,7 @@
 <%= @coffee.notes %><br>
 <br>
 <%= link_to "Edit Coffee", edit_coffee_path(@coffee) %>
+<%= form_tag coffee_path(@coffee), method: :delete do %>
+    <%= submit_tag "Delete Coffee" %>
+<% end %>
+
