@@ -1,6 +1,7 @@
 <h1><%= @brand.name %></h1>
-
-<h2>Coffees</h2>
+<h2><%= @brand.location %></h2>
+<br>
+<h3>Coffees</h3>
 <ul>
     <% @brand.coffees.each do |coffee| %>
         <li><%= link_to coffee.name, coffee_path(coffee) %> - <%= render partial: "stars", locals: {coffee: coffee} %></li>
@@ -8,7 +9,7 @@
     <% end %>
 </ul>
 <br>
-<h2>Reviews</h2>
+<h3>Reviews</h3>
 <ul>
     <% @brand.reviews.each do |review| %>
         <li><%= link_to review.content, coffee_path(review.coffee) %></li>
@@ -16,3 +17,5 @@
         <br><br>
     <% end %>
 </ul>
+<br>
+<%= link_to "Edit Brand", edit_brand_path(@brand) %>
