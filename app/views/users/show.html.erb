@@ -1,1 +1,6 @@
 <h1><%= @user.name %></h1>
+<br>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+<%= form_tag user_path(@user), method: :delete do %>
+    <%= submit_tag "Delete Profile" %>
+<% end %>
