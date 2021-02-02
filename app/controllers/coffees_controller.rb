@@ -6,10 +6,20 @@ class CoffeesController < ApplicationController
 
     def new
         @coffee = Coffee.new
+        @brands = Brand.all
     end
 
     def create
-        @coffee = Coffee.new
+        if brand = Brand.find_by(id: params[:coffee][:brand_id])
+            @coffee = brand.coffees.build(coffee_params)
+        else
+            @coffee = Coffee.new(coffee_params)
+        end
+        if @coffee.save
+            redirect_to coffee_path(@coffee)
+        else
+            render :new
+        end
     end
 
     def edit
@@ -26,4 +36,11 @@ class CoffeesController < ApplicationController
 
     def delete
     end
+
+    private
+
+    def coffee_params
+        params.require(:coffee).permit(:name, :roast, :origin, :notes, :stars, :brand_id, brand_attributes: [:name, :location])
+    end
+
 end
