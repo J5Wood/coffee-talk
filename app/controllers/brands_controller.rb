@@ -34,6 +34,10 @@ class BrandsController < ApplicationController
         @brand = Brand.find_by(id: params[:id])
     end
 
+    def destroy
+        Brand.find_by(id: params[:id]).destroy
+        redirect_to brands_path
+    end
     private
 
     def brand_params

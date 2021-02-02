@@ -19,3 +19,6 @@
 </ul>
 <br>
 <%= link_to "Edit Brand", edit_brand_path(@brand) %>
+<%= form_tag brand_path(@brand), method: :delete do %>
+    <%= submit_tag "Delete Brand" %>
+<% end %>
