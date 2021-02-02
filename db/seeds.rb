@@ -1,6 +1,6 @@
 a = Brand.create(name: "Barstucks", location: "Seattle")
 b = Brand.create(name: "Dunkin", location: "Canton")
-c = Brand.create(name: "AMPM", location: "Houston")
+c = Brand.create(name: "Tim Horton's", location: "Oakville")
 d = Brand.create(name: "Bigfoot Java", location: "Pacific")
 e = Brand.create(name: "Diva", location: "Seattle")
 

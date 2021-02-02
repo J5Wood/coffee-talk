@@ -1,2 +1,7 @@
-<h1><%= @coffee.name %></h1>
-<h2><%= @coffee.brand.name %></h2>
+<h1><%= @coffee.name %> - <%= @coffee.brand.name %></h1>
+<h2><%= render partial: "stars", locals: {coffee: @coffee} %></h2>
+<%= @coffee.roast_level %> Roast<br>
+<%= @coffee.origin %><br>
+<%= @coffee.notes %><br>
+<br>
+<%= link_to "Edit Coffee", edit_coffee_path(@coffee) %>
