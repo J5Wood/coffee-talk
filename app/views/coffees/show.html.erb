@@ -4,11 +4,11 @@
 <%= @coffee.origin %><br>
 <%= @coffee.notes %><br>
 <br>
-<h2>Reviews</h2>
+<h2>Reviews</h2> <%= link_to "New Review", new_coffee_review_path(@coffee) %>
 <ul>
     <% @coffee.reviews.each do |review| %>
         <li><%= review.content %></li>
-        - <%= review.user.name %>
+        - <%= review.user.name %> <%= link_to " Edit Review", edit_coffee_review_path(@coffee, review) if review.user_id == session[:user_id] %>
     <% end %>
 </ul>
 <br>

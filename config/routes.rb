@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :edit]
   end
   
+  resources :reviews, only: [:create, :update]
   resources :brands
   
   resources :users, except: :index
