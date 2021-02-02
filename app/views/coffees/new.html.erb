@@ -1,34 +1,3 @@
 <h1>Create New Coffee</h1>
 <br>
-<%= form_for @coffee do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :brand_id %>
-    <%= f.collection_select :brand_id, @brands, :id, :name, include_blank: true %><br>
-
-    <%= f.fields_for :brand_attributes, @coffee.brand do |brand| %>
-
-        <%= brand.label :name, "New Brand" %>
-        <%= brand.text_field :name %><br>
-        
-        <%= brand.label :location, "New Brand Location" %>
-        <%= brand.text_field :location %><br>
-
-    <% end 
-    %>
-    <%= f.label :roast %>
-    <%= f.text_field :roast %><br>
-     
-    <%= f.label :origin %>
-    <%= f.text_field :origin %><br>
-     
-    <%= f.label :notes %>
-    <%= f.text_field :notes %><br>
-     
-    <%= f.label :stars %>
-    <%= f.text_field :stars %><br>
-     
-    <%= f.submit %>
-<% end %>
-     
+<%= render partial: "form", locals: {coffee: @coffee, brands: @brands} %>

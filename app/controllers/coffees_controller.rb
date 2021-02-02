@@ -24,10 +24,22 @@ class CoffeesController < ApplicationController
 
     def edit
         @coffee = Coffee.find_by(id: params[:id])
+        @brands = Brand.all
     end
 
     def update
         @coffee = Coffee.find_by(id: params[:id])
+        if brand = Brand.find_by(id: params[:coffee][:brand_id])
+            @coffee.update(coffee_params)
+            @coffee.brand_id = brand.id
+        else
+            @coffee.update(coffee_params)
+        end
+        if @coffee.save
+            redirect_to coffee_path(@coffee)
+        else
+            render :edit
+        end
     end
 
     def show
