@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
 
     def new
+        redirect_if_logged_in
         @user = User.new
     end
 
     def create
-        user = User.where(name: params[:user][:name])[0]
+        user = User.where(name: params[:user][:name]).first
         if !!user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
             redirect_to user_path(user)

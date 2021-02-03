@@ -55,10 +55,4 @@ class UsersController < ApplicationController
     def find_current_user
         @user = User.find_by(id: session[:user_id])
     end
-
-    def redirect_if_logged_in
-        if !!session[:user_id]
-            redirect_to '/'
-        end
-    end
 end

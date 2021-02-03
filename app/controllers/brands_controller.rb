@@ -18,11 +18,11 @@ class BrandsController < ApplicationController
     end
 
     def edit
-        @brand = Brand.find_by(id: params[:id])
+        find_brand
     end
 
     def update
-        @brand = Brand.find_by(id: params[:id])
+        find_brand
         if @brand.update(brand_params)
             redirect_to brand_path(@brand)
         else
@@ -31,16 +31,21 @@ class BrandsController < ApplicationController
     end
 
     def show
-        @brand = Brand.find_by(id: params[:id])
+        find_brand
     end
 
     def destroy
         Brand.find_by(id: params[:id]).destroy
         redirect_to brands_path
     end
+
     private
 
     def brand_params
         params.require(:brand).permit(:name, :location)
+    end
+
+    def find_brand
+        @brand = Brand.find_by(id: params[:id])
     end
 end
