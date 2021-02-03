@@ -12,8 +12,8 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to coffee_path(@review.coffee)
         else
-            @coffee =  Coffee.find_by(id: params[:coffee_id])
-            redirect_to :new
+            @coffee =  Coffee.find_by(id: params[:review][:coffee_id])
+            render :new
         end
     end
 
