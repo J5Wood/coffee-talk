@@ -38,6 +38,7 @@ class CoffeesController < ApplicationController
         if @coffee.save
             redirect_to coffee_path(@coffee)
         else
+            @brands = Brand.all
             render :edit
         end
     end
