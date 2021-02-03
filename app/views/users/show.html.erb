@@ -1,5 +1,18 @@
 <h1><%= @user.name %></h1>
-<br>
+
+<ul>
+    <h2>My Coffees</h2>
+    <% @user.coffees.uniq.each do |coffee| %>
+        <li><%= link_to coffee.name, coffee_path(coffee) %></li>
+        <ul>
+        <% coffee.user_reviews(@user).each do |review| %>
+            <li><%= review.content %></li>
+        <% end %>
+        </ul>
+        <br>
+    <% end %>
+    <br>
+</ul>
 <%= link_to "Edit Profile", edit_user_path(@user) %>
 <%= form_tag user_path(@user), method: :delete do %>
     <%= submit_tag "Delete Profile" %>

@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
     def show
         find_current_user
+        
     end
 
     def edit

@@ -20,4 +20,8 @@ class Coffee < ApplicationRecord
             "Dark"
         end
     end
+
+    def user_reviews(user)
+        reviews.where(user_id: user.id)
+    end
 end
