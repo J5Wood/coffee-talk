@@ -9,7 +9,11 @@
     <%= render partial: "new_brand", locals: {f: f, coffee: coffee} if !params[:brand_id] %>
 
     <%= f.label :roast %>
-    <%= f.number_field :roast %><br>
+    <%= f.radio_button :roast, 1 %>
+    <%= f.radio_button :roast, 2 %>
+    <%= f.radio_button :roast, 3 %>
+    <%= f.radio_button :roast, 4 %>
+    <%= f.radio_button :roast, 5 %><br>
      
     <%= f.label :origin %>
     <%= f.text_field :origin %><br>
@@ -18,8 +22,11 @@
     <%= f.text_area :notes %><br>
      
     <%= f.label :stars %>
-    <%= f.number_field :stars %><br>
-     
+    <%= f.radio_button :stars, 1 %>
+    <%= f.radio_button :stars, 2 %>
+    <%= f.radio_button :stars, 3 %>
+    <%= f.radio_button :stars, 4 %>
+    <%= f.radio_button :stars, 5 %><br>
     <%= f.submit %>
 <% end %>
      
