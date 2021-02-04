@@ -1,7 +1,7 @@
 <h1><%= @brand.name %></h1>
 <h2><%= @brand.location %></h2>
 <br>
-<h3>Coffees</h3>
+<h3>Coffees</h3> - <%= link_to "Add New #{@brand.name} Coffee", new_brand_coffee_path(@brand) %>
 <ul>
     <% @brand.coffees.each do |coffee| %>
         <li><%= link_to coffee.name, coffee_path(coffee) %> - <%= render partial: "stars", locals: {coffee: coffee} %></li>

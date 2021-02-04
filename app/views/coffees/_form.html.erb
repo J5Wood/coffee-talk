@@ -1,20 +1,13 @@
+
 <%= form_for coffee do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
-
+  
     <%= f.label :brand_id %>
-    <%= f.collection_select :brand_id, brands, :id, :name, include_blank: true %><br>
+    <%= f.collection_select :brand_id, brands, :id, :name, include_blank: true, selected: coffee.brand_id || params[:brand_id] %><br>
 
-    <%= f.fields_for :brand_attributes, coffee.brand do |brand| %>
+    <%= render partial: "new_brand", locals: {f: f, coffee: coffee} if !params[:brand_id] %>
 
-        <%= brand.label :name, "New Brand" %>
-        <%= brand.text_field :name, value: "" %><br>
-        
-        <%= brand.label :location, "New Brand Location" %>
-        <%= brand.text_field :location, value: "" %><br>
-
-    <% end 
-    %>
     <%= f.label :roast %>
     <%= f.number_field :roast %><br>
      

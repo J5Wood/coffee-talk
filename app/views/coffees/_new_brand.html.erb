@@ -1,0 +1,9 @@
+<%= f.fields_for :brand_attributes, coffee.brand do |brand| %>
+
+    <%= brand.label :name, "New Brand" %>
+    <%= brand.text_field :name, value: "" %><br>
+    
+    <%= brand.label :location, "New Brand Location" %>
+    <%= brand.text_field :location, value: "" %><br>
+
+<% end %>
