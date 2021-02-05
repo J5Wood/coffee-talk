@@ -7,14 +7,11 @@ class CoffeesController < ApplicationController
     def new
         @coffee = Coffee.new
         @brands = Brand.all
+        @coffee.build_brand
     end
 
     def create
-        if brand = Brand.find_by(id: params[:coffee][:brand_id])
-            @coffee = brand.coffees.build(coffee_params)
-        else
-            @coffee = Coffee.new(coffee_params)
-        end
+        @coffee = Coffee.new(coffee_params)
         if @coffee.save
             redirect_to coffee_path(@coffee)
         else
@@ -29,12 +26,7 @@ class CoffeesController < ApplicationController
 
     def update
         @coffee = Coffee.find_by(id: params[:id])
-        if brand = Brand.find_by(id: params[:coffee][:brand_id])
-            @coffee.update(coffee_params)
-            @coffee.brand_id = brand.id
-        else
-            @coffee.update(coffee_params)
-        end
+        @coffee.update(coffee_params)
         if @coffee.save
             redirect_to coffee_path(@coffee)
         else

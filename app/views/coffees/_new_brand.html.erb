@@ -1,4 +1,4 @@
-<%= f.fields_for :brand_attributes, coffee.brand do |brand| %>
+<%= f.fields_for :brand do |brand| %>
 
     <%= brand.label :name, "New Brand" %>
     <%= brand.text_field :name, value: "" %><br>
