@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new
-        @coffee =  Coffee.find_by(id: params[:coffee_id])
+        find_coffee
     end
 
     def create
@@ -18,21 +18,29 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @review = Review.find_by(id: params[:id])
-        @coffee = Coffee.find_by(id: params[:coffee_id])
+        find_review
+        find_coffee
     end
 
     def update
-        @review = Review.find_by(id: params[:id])
+        find_review
         if @review.update(review_params)
             redirect_to coffee_path(@review.coffee)
         else
-            @coffee = Coffee.find_by(id: params[:coffee_id])
+            find_coffee
             render :edit
         end 
     end
 
     private
+
+    def find_coffee
+        @coffee = Coffee.find_by(id: params[:coffee_id])
+    end
+
+    def find_review
+        @review = Review.find_by(id: params[:id])
+    end
 
     def review_params
         params.require(:review).permit(:content, :coffee_id)
