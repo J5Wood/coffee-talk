@@ -47,12 +47,6 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
-    def require_login
-        if !session[:user_id]
-            redirect_to '/'
-        end
-    end
-
     def find_current_user
         @user = User.find_by(id: session[:user_id])
     end

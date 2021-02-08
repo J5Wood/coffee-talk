@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+    before_action :require_login
 
     def new
         @review = Review.new
