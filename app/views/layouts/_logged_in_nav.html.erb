@@ -1,0 +1,7 @@
+<li class="nav-item active">
+<a class="nav-link" href=<%= user_path(session[:user_id]) %>>My Page</a>
+</li>
+<br>
+<li class="nav-item active">
+<%= button_to "Logout", logout_path, method: :post %>
+</li>

@@ -2,7 +2,7 @@
 <br>
 <ul>
     <% @brands.each do |brand| %>
-        <li><%= link_to brand.name, brand_path(brand) %></li>
+        <li><%= link_to brand.name, brand_path(brand) %> - <%= render partial: "brands/stars", locals: {rating: brand.average_rating} %></li>
         <br>
     <% end %>
 </ul>

@@ -38,6 +38,7 @@ class CoffeesController < ApplicationController
 
     def show
         @coffee = Coffee.find_by(id: params[:id])
+        @reviews = @coffee.reviews
     end
 
     def destroy

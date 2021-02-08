@@ -33,6 +33,8 @@ class BrandsController < ApplicationController
 
     def show
         find_brand
+        @coffees = @brand.coffees
+        @reviews = @brand.reviews
     end
 
     def destroy
