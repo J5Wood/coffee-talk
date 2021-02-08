@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     end
 
     def create
+        binding.pry
         user = User.where(name: params[:user][:name]).first
         if !!user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
@@ -19,5 +20,11 @@ class SessionsController < ApplicationController
     def destroy
         session.clear
         redirect_to "/"
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
     end
 end
