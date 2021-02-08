@@ -6,14 +6,24 @@ class SessionsController < ApplicationController
     end
 
     def create
-        binding.pry
-        user = User.where(name: params[:user][:name]).first
-        if !!user && user.authenticate(params[:user][:password])
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+        if !!auth
+            @user = User.find_or_initialize_by(name: auth[:info][:nickname])
+            @user.password = auth[:uid]
+            if @user.save
+                session[:user_id] = @user.id
+                redirect_to user_path(@user)
+            else
+                render :new
+            end
         else
-            @user = User.new
-            render :new
+            user = User.find_by(name: params[:user][:name])
+            if !!user && user.authenticate(params[:user][:password])
+                session[:user_id] = user.id
+                redirect_to user_path(user)
+            else
+                @user = User.new
+                render :new
+            end
         end
     end
 

@@ -21,10 +21,10 @@ m = d.coffees.build(name: "Roast 11", roast: 3, origin: "Guatemala", notes: "Vel
 d.coffees.build(name: "Roast 12", roast: 5, origin: "Arkansas", notes: "No", stars: 1)
 d.save
 
-User.create(name: "Jim", password: "password", email: "anemail@email.com")
-User.create(name: "Jill", password: "password", email: "anotheremail@email.com")
-User.create(name: "Ben", password: "password", email: "someemail@email.com")
-User.create(name: "Jen", password: "password", email: "maybeanemail@email.com")
+User.create(name: "Jim", password: "password")
+User.create(name: "Jill", password: "password")
+User.create(name: "Ben", password: "password")
+User.create(name: "Jen", password: "password")
 
 f.reviews.create(content: "Review Number 1", user_id: 1)
 f.reviews.create(content: "Review Number 2", user_id: 3)
