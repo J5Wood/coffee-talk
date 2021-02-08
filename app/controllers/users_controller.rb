@@ -18,16 +18,15 @@ class UsersController < ApplicationController
     end
 
     def show
-        find_current_user
-        
+        find_and_verify_current_user
     end
 
     def edit
-        find_current_user
+        find_and_verify_current_user
     end
 
     def update
-        find_current_user
+        find_and_verify_current_user
         if @user.update(user_params)
             redirect_to user_path(@user)
         else
@@ -36,7 +35,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        User.find_by(params[:id]).destroy
+        find_user.destroy
         session.clear
         redirect_to '/'
     end
@@ -47,7 +46,14 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
-    def find_current_user
-        @user = User.find_by(id: session[:user_id])
+    def find_and_verify_current_user
+        @user = User.find_by(id: params[:id])
+        if @user.id != session[:user_id]
+            redirect_to "/"
+        end
+    end
+
+    def find_user
+        User.find_by(id: params[:id])
     end
 end
