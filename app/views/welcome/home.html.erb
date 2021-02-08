@@ -1,14 +1,16 @@
 <br>
+<div class="main_content">
 <h2>Top Rated Coffees</h2>
 <% @coffees.each do |coffee| %>
     <li><%= link_to coffee.name, coffee_path(coffee) %>
      - <%= render partial: "coffees/stars", locals: {coffee: coffee} %>
     </li>
 <% end %>
-
-<br>
+</div>
+<div class="main_content">
 <h2>Top Rated Brands</h2>
 <% @brands.each do |brand| %>
     <li><%= link_to brand.name, brand_path(brand) %> - <%= render partial: "brands/stars", locals: {rating: brand.average_rating} %>
     </li>
 <% end %>
+</div>
