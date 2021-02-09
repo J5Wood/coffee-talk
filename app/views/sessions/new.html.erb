@@ -1,5 +1,7 @@
 <h1>Log In!</h1>
 <br>
+<%= render partial: "sessions/errors" %>
+
 <%= form_for @user, url: login_path do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>

@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 redirect_to user_path(@user)
             else
+                flash[:alert] = "An Unexpected Error Occurred. Please Try Again."
                 render :new
             end
         else
@@ -22,6 +23,7 @@ class SessionsController < ApplicationController
                 redirect_to user_path(user)
             else
                 @user = User.new
+                flash[:alert] = "Incorrect Name or Password"
                 render :new
             end
         end

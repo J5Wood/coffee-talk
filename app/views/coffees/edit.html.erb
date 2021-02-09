@@ -1,3 +1,5 @@
 <h1>Edit Coffee</h1>
 <br>
-<%= render partial: "form", locals: {coffee: @coffee, brands: @brands} %>
+<%= render partial: "/layouts/errors", locals: {object: @coffee} %>
+
+<%= render partial: "form", locals: {coffee: @coffee, brands: @brands, coffee_brand_id: @coffee_brand_id} %>

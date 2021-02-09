@@ -1,3 +1,5 @@
 <h1>Add New Brand</h1>
 <br>
+<%= render partial: "/layouts/errors", locals: {object: @brand} %>
+
 <%= render partial: "form", locals: {brand: @brand} %>

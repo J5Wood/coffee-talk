@@ -16,6 +16,8 @@ class CoffeesController < ApplicationController
         if @coffee.save
             redirect_to coffee_path(@coffee)
         else
+            find_brands
+            @coffee.build_brand
             render :new
         end
     end
@@ -23,6 +25,8 @@ class CoffeesController < ApplicationController
     def edit
         find_coffee
         find_brands
+        @coffee_brand_id = @coffee.brand.id
+        @coffee.build_brand
     end
 
     def update
@@ -32,6 +36,7 @@ class CoffeesController < ApplicationController
             redirect_to coffee_path(@coffee)
         else
             find_brands
+            @coffee.build_brand
             render :edit
         end
     end

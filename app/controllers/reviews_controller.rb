@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
         if @review.update(review_params)
             redirect_to coffee_path(@review.coffee)
         else
-            find_coffee
+            @coffee = Coffee.find_by(id: params[:review][:coffee_id])
             render :edit
         end 
     end

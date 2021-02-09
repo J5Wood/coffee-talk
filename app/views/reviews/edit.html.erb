@@ -1,3 +1,5 @@
 <h1>Edit Review for <%= @coffee.name %></h1>
 <br>
+<%= render partial: "/layouts/errors", locals: {object: @review} %>
+
 <%= render partial: "form", locals: {review: @review, coffee: @coffee} %>

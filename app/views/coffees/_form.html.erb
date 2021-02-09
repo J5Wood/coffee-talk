@@ -3,9 +3,10 @@
     <%= f.text_field :name %><br>
   
     <%= f.label :brand_id %>
-    <%= f.collection_select :brand_id, brands, :id, :name, include_blank: true, selected: coffee.brand_id || params[:brand_id] %><br>
+  
+    <%= f.collection_select :brand_id, brands, :id, :name, include_blank: true, selected: coffee_brand_id || params[:brand_id] %><br>
 
-    <%= render partial: "new_brand", locals: {f: f, coffee: coffee} if !params[:brand_id] %>
+    <%= render partial: "new_brand", locals: {f: f} if !params[:brand_id] %>
 
     <%= f.label :roast %>
     <%= f.radio_button :roast, 1 %>
