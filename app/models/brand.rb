@@ -18,6 +18,6 @@ class Brand < ApplicationRecord
     end
 
     def self.top_rated
-        Brand.all.sort_by { |brand| brand.average_rating }[0,5].reverse() 
+        Brand.all.sort_by { |brand| brand.average_rating }[-5,5].reverse()
     end
 end
