@@ -14,6 +14,7 @@ class BrandsController < ApplicationController
         if @brand.save
             redirect_to brand_path(@brand)
         else
+            binding.pry
             render :new
         end
     end

@@ -1,4 +1,6 @@
 <h1>Brands</h1>
+<%= link_to "Add New Brand", new_brand_path %>
+<br>
 <br>
 <ul>
     <% @brands.each do |brand| %>
@@ -6,4 +8,3 @@
         <br>
     <% end %>
 </ul>
-<%= link_to "Create New Brand", new_brand_path %>

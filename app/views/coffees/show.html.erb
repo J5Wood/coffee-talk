@@ -1,14 +1,20 @@
 <h1><%= @coffee.name %> - <%= link_to @coffee.brand.name, brand_path(@coffee.brand) %></h1>
 <h2><%= render partial: "stars", locals: {coffee: @coffee} %></h2>
 <%= @coffee.roast_level %> Roast<br>
-<%= @coffee.origin %><br>
-<%= @coffee.notes %><br>
+<%= coffee_origin(@coffee) %>
+<%= coffee_notes(@coffee) %>
 <br>
-<h2>Reviews</h2> <%= link_to "New Review", new_coffee_review_path(@coffee) %>
+
+<h2>Reviews</h2>
+<%= link_to "New Review", new_coffee_review_path(@coffee) %>
+<br>
+<br>
 <ul>
     <% @reviews.each do |review| %>
         <li><%= review.content %></li>
         - <%= review.user.name %> <%= link_to " Edit Review", edit_coffee_review_path(@coffee, review) if review.user_id == session[:user_id] %>
+        <br>
+        <br>
     <% end %>
 </ul>
 <br>

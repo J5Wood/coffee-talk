@@ -1,6 +1,6 @@
 class Coffee < ApplicationRecord
     belongs_to :brand
-    has_many :reviews
+    has_many :reviews, dependent: :destroy
     has_many :users, through: :reviews
     validates :name, :roast, :stars, presence: true
     validates :roast, :stars, format: { with: /[12345]/, message: "only allows numbers 1 to 5" }

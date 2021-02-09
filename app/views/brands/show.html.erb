@@ -1,23 +1,24 @@
 <h1><%= @brand.name %> - <%= render partial: "brands/stars", locals: {rating: @brand.average_rating} %></h1>
 <h2><%= @brand.location %></h2>
 <br>
-<h3>Coffees</h3> - <%= link_to "Add New #{@brand.name} Coffee", new_brand_coffee_path(@brand) %>
+<h3>Coffees</h3>
+<%= link_to "Add New #{@brand.name} Coffee", new_brand_coffee_path(@brand) %>
+<br>
+<br>
 <ul>
     <% @coffees.each do |coffee| %>
-        <li><%= link_to coffee.name, coffee_path(coffee) %> - <%= render partial: "coffees/stars", locals: {coffee: coffee} %></li>
+        <li><h4><%= link_to coffee.name, coffee_path(coffee) %> - <%= render partial: "coffees/stars", locals: {coffee: coffee} %></h4></li>
+        <h6>Reviews:</h6>
+        <ul>
+            <% coffee.reviews.each do |review| %>
+                <li><%= review.content %></li>
+                - <%= review.user.name %>
+                <br><br>
+            <% end %>
+        </ul>
         <br>
     <% end %>
 </ul>
-<br>
-<h3>Reviews</h3>
-<ul>
-    <% @reviews.each do |review| %>
-        <li><%= link_to review.content, coffee_path(review.coffee) %></li>
-        - <%= review.user.name %>
-        <br><br>
-    <% end %>
-</ul>
-<br>
 <%= link_to "Edit Brand", edit_brand_path(@brand) %>
 <%= form_tag brand_path(@brand), method: :delete do %>
     <%= submit_tag "Delete Brand" %>

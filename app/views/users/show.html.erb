@@ -2,6 +2,9 @@
 
 <ul>
     <h2>My Coffees</h2>
+    <%= link_to "Add New Coffee", new_coffee_path %>
+    <br>
+    <br>
     <% @user.coffees.uniq.each do |coffee| %>
         <li><%= link_to coffee.name, coffee_path(coffee) %></li>
         <ul>
