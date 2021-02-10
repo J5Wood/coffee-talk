@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
     before_action :require_login
+    before_action :find_review, only: [:edit, :update]
+    before_action :find_coffee, only: [:edit, :new]
 
     def new
         @review = Review.new
-        find_coffee
     end
 
     def create
@@ -12,18 +13,15 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to coffee_path(@review.coffee)
         else
-            @coffee =  Coffee.find_by(id: params[:review][:coffee_id])
+            @coffee = Coffee.find_by(id: params[:review][:coffee_id])
             render :new
         end
     end
 
     def edit
-        find_review
-        find_coffee
     end
 
     def update
-        find_review
         if @review.update(review_params)
             redirect_to coffee_path(@review.coffee)
         else

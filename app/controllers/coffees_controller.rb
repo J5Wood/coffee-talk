@@ -1,5 +1,6 @@
 class CoffeesController < ApplicationController
     before_action :require_login
+    before_action :find_coffee, only: [:edit, :update, :show, :destroy]
 
     def index
         @coffees = Coffee.all
@@ -23,14 +24,12 @@ class CoffeesController < ApplicationController
     end
 
     def edit
-        find_coffee
         find_brands
         @coffee_brand_id = @coffee.brand.id
         @coffee.build_brand
     end
 
     def update
-        find_coffee
         @coffee.update(coffee_params)
         if @coffee.save
             redirect_to coffee_path(@coffee)
@@ -42,12 +41,11 @@ class CoffeesController < ApplicationController
     end
 
     def show
-        find_coffee
         @reviews = @coffee.reviews
     end
 
     def destroy
-        find_coffee.destroy
+        @coffee.destroy
         redirect_to coffees_path
     end
 

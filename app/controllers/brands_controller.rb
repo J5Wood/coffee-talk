@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
     before_action :require_login
+    before_action :find_brand, only: [:edit, :update, :show, :destroy]
 
     def index
         @brands = Brand.all
@@ -19,11 +20,9 @@ class BrandsController < ApplicationController
     end
 
     def edit
-        find_brand
     end
 
     def update
-        find_brand
         if @brand.update(brand_params)
             redirect_to brand_path(@brand)
         else
@@ -32,12 +31,11 @@ class BrandsController < ApplicationController
     end
 
     def show
-        find_brand
         @coffees = @brand.coffees
     end
 
     def destroy
-        find_brand.destroy
+        @brand.destroy
         redirect_to brands_path
     end
 

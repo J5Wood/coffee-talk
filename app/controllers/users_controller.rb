@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    before_action :require_login
-    skip_before_action :require_login, only: [:new, :create]
+    before_action :require_login, only: [:show, :edit, :update, :destroy]
+    before_action :find_and_verify_current_user, only: [:show, :edit, :update]
 
     def new
         redirect_if_logged_in
@@ -18,15 +18,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        find_and_verify_current_user
     end
 
     def edit
-        find_and_verify_current_user
     end
 
     def update
-        find_and_verify_current_user
         if @user.update(user_params)
             redirect_to user_path(@user)
         else

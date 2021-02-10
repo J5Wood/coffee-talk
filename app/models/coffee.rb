@@ -24,4 +24,8 @@ class Coffee < ApplicationRecord
     def user_reviews(user)
         reviews.where(user_id: user.id)
     end
+
+    def self.top_rated
+        order(stars: :desc).limit(5)
+    end
 end
