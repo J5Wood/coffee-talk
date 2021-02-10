@@ -1,3 +1,25 @@
 // Place all the styles related to the Coffees controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.roast_buttons {
+    float: left;
+    padding: 5px;
+}
+
+.star_buttons {
+    float: left;
+    padding: 5px;
+}
+
+.clear {
+    clear: both;;
+}
+
+.float_right {
+    float: right;
+}
+
+.float_left {
+    float: left;
+}

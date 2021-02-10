@@ -1,32 +1,69 @@
 <%= form_for coffee do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %><br>
-  
-    <%= f.label :brand_id %>
-  
-    <%= f.collection_select :brand_id, brands, :id, :name, include_blank: true, selected: coffee_brand_id || params[:brand_id] %><br>
-
+    <%= f.text_field :name %>
+    <br><br>
+    
+    <%= f.label :brand_id, "Select Brand" %>
+    <%= f.collection_select :brand_id, brands, :id, :name, include_blank: true, selected: coffee_brand_id || params[:brand_id] %>
+    <br>-or-<br>
+    
     <%= render partial: "new_brand", locals: {f: f} if !params[:brand_id] %>
+    <br>
+    <h5>Roast level</h5>
+    <div class="roast_buttons">
+    <%= f.label "roast_1", "Light Roast" %><br>
+    <%= f.radio_button :roast, 1, class: "float_right" %>
+    </div>
+    <div class="roast_buttons">
+    <%= f.label "roast_2", "-" %><br>
+    <%= f.radio_button :roast, 2, class: "float_left" %>
+    </div>
+    <div class="roast_buttons">
+    <%= f.label "roast_3", "M" %><br>
+    <%= f.radio_button :roast, 3, class: "float_left" %>
+    </div>
+    <div class="roast_buttons">
+    <%= f.label "roast_4", "-" %><br>
+    <%= f.radio_button :roast, 4, class: "float_left" %>
+    </div>
+    <div class="roast_buttons">
+    <%= f.label "roast_5", "Dark Roast" %><br>
+    <%= f.radio_button :roast, 5, class: "float_left" %>
+    </div>
+    <br><br><br>
 
-    <%= f.label :roast %>
-    <%= f.radio_button :roast, 1 %>
-    <%= f.radio_button :roast, 2 %>
-    <%= f.radio_button :roast, 3 %>
-    <%= f.radio_button :roast, 4 %>
-    <%= f.radio_button :roast, 5 %><br>
-     
+    <div class="clear">
     <%= f.label :origin %>
     <%= f.text_field :origin %><br>
-     
+    </div>
+    <br>
+
     <%= f.label :notes %>
     <%= f.text_area :notes %><br>
-     
-    <%= f.label :stars %>
+     <br>
+
+    <h5>Stars</h5>
+    <div class="star_buttons">
+    &#11088;<br>
     <%= f.radio_button :stars, 1 %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
     <%= f.radio_button :stars, 2 %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
     <%= f.radio_button :stars, 3 %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
     <%= f.radio_button :stars, 4 %>
-    <%= f.radio_button :stars, 5 %><br>
-    <%= f.submit %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
+    <%= f.radio_button :stars, 5 %>
+    </div>
+    <br><br><br>
+    <%= f.submit class: "clear" %>
 <% end %>
      

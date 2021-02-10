@@ -63,7 +63,7 @@ Specs:
     - brands/new brands/edit coffees/new coffees/edit reviews/new reviews/edit users/new users/edit login
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate

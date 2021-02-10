@@ -14,13 +14,7 @@ class CoffeesController < ApplicationController
 
     def create
         @coffee = Coffee.new(coffee_params)
-        if @coffee.save
-            redirect_to coffee_path(@coffee)
-        else
-            find_brands
-            @coffee.build_brand
-            render :new
-        end
+        save_coffee
     end
 
     def edit
@@ -31,13 +25,7 @@ class CoffeesController < ApplicationController
 
     def update
         @coffee.update(coffee_params)
-        if @coffee.save
-            redirect_to coffee_path(@coffee)
-        else
-            find_brands
-            @coffee.build_brand
-            render :edit
-        end
+        save_coffee
     end
 
     def show
@@ -61,5 +49,15 @@ class CoffeesController < ApplicationController
 
     def coffee_params
         params.require(:coffee).permit(:name, :roast, :origin, :notes, :stars, :brand_id, brand_attributes: [:name, :location])
+    end
+
+    def save_coffee
+        if @coffee.save
+            redirect_to coffee_path(@coffee)
+        else
+            find_brands
+            @coffee.build_brand
+            render :new
+        end
     end
 end
