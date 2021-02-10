@@ -7,7 +7,7 @@
 <br>
 <ul>
     <% @coffees.each do |coffee| %>
-        <li><h4><%= link_to coffee.name, coffee_path(coffee) %> - <%= render partial: "coffees/stars", locals: {coffee: coffee} %></h4></li>
+        <li><h4><%= link_to coffee.name, brand_coffee_path(@brand, coffee) %> - <%= render partial: "coffees/stars", locals: {coffee: coffee} %></h4></li>
         <h6>Reviews:</h6>
         <ul>
             <% coffee.reviews.each do |review| %>
