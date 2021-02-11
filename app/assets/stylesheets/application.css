@@ -17,3 +17,36 @@
  .error-message {
     color: red;
  }
+
+.custom_wrapper {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-items: stretch;
+   align-content: stretch;
+   justify-content: space-between;
+}
+
+.main_body {
+   order: 2;
+   flex-grow: 6;
+   width: max-content;
+   background-color: 	 #ffbf80;
+   height: 100vh;
+}
+
+.left_sidebar {
+   width: 12%;
+   order: 1;
+   background-color: 	#4f2a17;
+}
+
+.right_sidebar {
+   width: 12%;
+   order: 3;
+   background-color: 	#4f2a17;
+}
+
+.nav_color {
+   background-color: rebeccapurple;
+}

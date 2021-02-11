@@ -49,7 +49,6 @@ Specs:
 
     - Includes Github signup through Omniauth.
 
-
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 
     - brands/:id/coffees/:id
