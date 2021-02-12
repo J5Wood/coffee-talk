@@ -3,16 +3,16 @@
 <h2>Top Rated Coffees</h2>
 <br>
 <% @coffees.each do |coffee| %>
-    <li><%= link_to coffee.name, coffee_path(coffee) %>
+    <h5><li><%= link_to coffee.name, coffee_path(coffee), class: "badge badge-pill badge-dark" %>
      - <%= render partial: "coffees/stars", locals: {coffee: coffee} %>
-    </li><br>
+    </li></h5><br>
 <% end %>
 </div>
 <div class="half_content">
 <h2>Top Rated Brands</h2>
 <br>
 <% @brands.each do |brand| %>
-    <li><%= link_to brand.name, brand_path(brand) %> - <%= render partial: "brands/stars", locals: {rating: brand.average_rating} %>
-    </li><br>
+    <h5><li><%= link_to brand.name, brand_path(brand), class: "badge badge-pill badge-dark" %> - <%= render partial: "brands/stars", locals: {rating: brand.average_rating} %>
+    </li></h5><br>
 <% end %>
 </div>

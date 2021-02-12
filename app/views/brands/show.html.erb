@@ -3,12 +3,11 @@
 <br>
 <h3>Coffees</h3>
 <br>
-<%= link_to "Add New #{@brand.name} Coffee", new_brand_coffee_path(@brand) %>
-<br>
+<h5><%= link_to "Add New #{@brand.name} Coffee", new_brand_coffee_path(@brand), class: "badge badge-dark border border-danger" %></h5>
 <br>
 <ul>
     <% @coffees.each do |coffee| %>
-        <li><h4><%= link_to coffee.name, brand_coffee_path(@brand, coffee) %> - <%= render partial: "coffees/stars", locals: {coffee: coffee} %></h4></li>
+        <li><h4><%= link_to coffee.name, brand_coffee_path(@brand, coffee), class: "badge badge-pill badge-dark" %> - <%= render partial: "coffees/stars", locals: {coffee: coffee} %></h4></li>
         <h6>Reviews:</h6>
         <ul>
             <% coffee.reviews.each do |review| %>

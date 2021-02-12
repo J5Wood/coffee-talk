@@ -1,11 +1,10 @@
 <h1>Brands</h1>
 <br>
-<%= link_to "Add New Brand", new_brand_path %>
-<br>
+<h5><%= link_to "Add New Brand", new_brand_path, class: "badge badge-dark border border-danger" %></h5>
 <br>
 <ul>
     <% @brands.each do |brand| %>
-        <li><%= link_to brand.name, brand_path(brand) %> - <%= render partial: "brands/stars", locals: {rating: brand.average_rating} %></li>
-        <br>
+        <h5><li><%= link_to brand.name, brand_path(brand), class: "badge badge-pill badge-dark" %> - <%= render partial: "brands/stars", locals: {rating: brand.average_rating} %>
+        </li></h5><br>
     <% end %>
 </ul>

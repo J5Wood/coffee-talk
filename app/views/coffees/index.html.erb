@@ -1,11 +1,10 @@
 <h1>Coffees:</h1>
 <br>
-<%= link_to "Add New Coffee", new_coffee_path %>
-<br>
+<h5><%= link_to "Add New Coffee", new_coffee_path, class: "badge badge-dark border border-danger" %></h5>
 <br>
 <ul>
 <% @coffees.all.each do |coffee| %>
-    <li><%= link_to coffee.name, coffee_path(coffee) %> - <%= render partial: "stars", locals: {coffee: coffee} %></li>
+    <h5><li><%= link_to coffee.name, coffee_path(coffee), class: "badge badge-pill badge-dark" %> - <%= render partial: "stars", locals: {coffee: coffee} %></li></h5>
     Roast: <%= coffee.roast_level %>
     <br><br>
 <% end %>
