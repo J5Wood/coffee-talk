@@ -1,7 +1,8 @@
 <h1><%= @user.name %></h1>
-
+<br>
 <ul>
     <h2>My Coffees</h2>
+    <br>
     <%= link_to "Add New Coffee", new_coffee_path %>
     <br>
     <br>
@@ -14,9 +15,9 @@
         </ul>
         <br>
     <% end %>
-    <br>
 </ul>
-<%= link_to "Edit Profile", edit_user_path(@user) %>
+<%= button_to "Edit Profile", edit_user_path(@user) %>
+<br>
 <%= form_tag user_path(@user), method: :delete do %>
     <%= submit_tag "Delete Profile" %>
 <% end %>

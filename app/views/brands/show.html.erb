@@ -2,6 +2,7 @@
 <h2><%= @brand.location %></h2>
 <br>
 <h3>Coffees</h3>
+<br>
 <%= link_to "Add New #{@brand.name} Coffee", new_brand_coffee_path(@brand) %>
 <br>
 <br>
@@ -19,7 +20,8 @@
         <br>
     <% end %>
 </ul>
-<%= link_to "Edit Brand", edit_brand_path(@brand) %>
+<%= button_to "Edit Brand", edit_brand_path(@brand) %>
+<br>
 <%= form_tag brand_path(@brand), method: :delete do %>
     <%= submit_tag "Delete Brand" %>
 <% end %>

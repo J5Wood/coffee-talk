@@ -6,6 +6,7 @@
 <br>
 
 <h2>Reviews</h2>
+<br>
 <%= link_to "New Review", new_coffee_review_path(@coffee) %>
 <br>
 <br>
@@ -18,7 +19,8 @@
     <% end %>
 </ul>
 <br>
-<%= link_to "Edit Coffee", edit_coffee_path(@coffee) %>
+<%= button_to "Edit Coffee", edit_coffee_path(@coffee) %>
+<br>
 <%= form_tag coffee_path(@coffee), method: :delete do %>
     <%= submit_tag "Delete Coffee" %>
 <% end %>
