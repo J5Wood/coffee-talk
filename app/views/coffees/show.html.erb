@@ -19,10 +19,10 @@
     <% end %>
 </ul>
 <br>
-<%= button_to "Edit Coffee", edit_coffee_path(@coffee) %>
+<%= button_to "Edit Coffee", edit_coffee_path(@coffee), method: :get, class: "btn btn-dark" %>
 <br>
 <%= form_tag coffee_path(@coffee), method: :delete do %>
-    <%= submit_tag "Delete Coffee" %>
+    <%= submit_tag "Delete Coffee", class: "btn btn-danger" %>
 <% end %>
 
 

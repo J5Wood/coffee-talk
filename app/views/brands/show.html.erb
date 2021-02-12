@@ -20,8 +20,8 @@
         <br>
     <% end %>
 </ul>
-<%= button_to "Edit Brand", edit_brand_path(@brand) %>
+<%= button_to "Edit Brand", edit_brand_path(@brand), method: :get, class: "btn btn-dark" %>
 <br>
 <%= form_tag brand_path(@brand), method: :delete do %>
-    <%= submit_tag "Delete Brand" %>
+    <%= submit_tag "Delete Brand", class: "btn btn-danger" %>
 <% end %>

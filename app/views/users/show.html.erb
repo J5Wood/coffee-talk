@@ -16,8 +16,8 @@
         <br>
     <% end %>
 </ul>
-<%= button_to "Edit Profile", edit_user_path(@user) %>
+<%= button_to "Edit Profile", edit_user_path(@user), class: "btn btn-dark" %>
 <br>
 <%= form_tag user_path(@user), method: :delete do %>
-    <%= submit_tag "Delete Profile" %>
+    <%= submit_tag "Delete Profile", class: "btn btn-danger" %>
 <% end %>

@@ -45,7 +45,6 @@
    order: 2;
    flex-grow: 6;
    background-color: 	 #ffbf80;
-
 }
 
 .left_sidebar {
@@ -57,8 +56,5 @@
 .right_sidebar {
    width: 12%;
    order: 3;
-
    background-color: 	#4f2a17;
-
 }
-

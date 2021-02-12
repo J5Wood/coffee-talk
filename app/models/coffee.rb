@@ -3,8 +3,8 @@ class Coffee < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :users, through: :reviews
     validates :name, :roast, :stars, presence: true
-    validates :roast, :stars, format: { with: /[12345]/, message: "only allows numbers 1 to 5" }
-    validates :roast, :stars, length: { is: 1, message: "only allows numbers 1 to 5" }
+    validates :roast, :stars, format: { with: /[12345]/ }
+    validates :roast, :stars, length: { is: 1 }
     accepts_nested_attributes_for :brand, reject_if: proc { |attributes| attributes['name'].blank? }
 
     def roast_level
