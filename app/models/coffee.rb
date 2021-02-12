@@ -1,11 +1,23 @@
 class Coffee < ApplicationRecord
+    validates :name, presence: true
     belongs_to :brand
+    accepts_nested_attributes_for :brand, reject_if: proc { |attributes| attributes['name'].blank? }
+    validate :roast_validator
+    validate :stars_validator
     has_many :reviews, dependent: :destroy
     has_many :users, through: :reviews
-    validates :name, :roast, :stars, presence: true
-    validates :roast, :stars, format: { with: /[12345]/ }
-    validates :roast, :stars, length: { is: 1 }
-    accepts_nested_attributes_for :brand, reject_if: proc { |attributes| attributes['name'].blank? }
+
+    def roast_validator
+        if roast.blank? || !roast.to_s.match(/[12345]/) || roast.to_s.length != 1
+            self.errors.add(:roast, 'Level Required')
+        end
+    end
+
+    def stars_validator
+        if stars.blank? || !stars.to_s.match(/[12345]/) || stars.to_s.length != 1
+            self.errors.add(:stars, 'Required')
+        end
+    end
 
     def roast_level
         if roast == 1
