@@ -11,4 +11,12 @@ module ApplicationHelper
             render partial: "layouts/signed_out_nav"
         end
     end
+    
+    def content
+        if params[:controller] == "welcome"
+            render partial: "layouts/welcome_body"
+        else
+            render partial: "layouts/main_body"
+        end
+    end
 end
