@@ -1,7 +1,7 @@
 <li class="nav-item active">
-<a class="nav-link mr-4" href=<%= user_path(session[:user_id]) %>>My Page</a>
+<a class="nav-link float-right" href=<%= user_path(session[:user_id]) %>>My Page</a>
 </li>
 <br>
 <li class="nav-item active">
-<%= button_to "Logout", logout_path, method: :post, class: "btn btn-secondary" %>
+<%= button_to "Logout", logout_path, method: :post, class: "btn btn-secondary float-right ml-4" %>
 </li>

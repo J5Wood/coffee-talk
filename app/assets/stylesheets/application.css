@@ -15,16 +15,15 @@
  */
 
  .half_content {
-   margin: 50px;
-   max-width: 45%;
+   margin: 60px;
+   max-width: 80%;
    float: left;
    justify-content: space-evenly;
 }
 
 .full_content {
    margin: 70px;
-   max-width: 80%;
-   float: left;
+   max-width: 100%;
    justify-content: space-evenly;
 }
 
@@ -48,13 +47,13 @@
 }
 
 .left_sidebar {
-   width: 12%;
+   width: 13%;
    order: 1;
    background-color: 	#4f2a17;
 }
 
 .right_sidebar {
-   width: 12%;
+   width: 13%;
    order: 3;
    background-color: 	#4f2a17;
 }
