@@ -20,11 +20,15 @@ l = d.coffees.build(name: "Roast 10", roast: 2, origin: "Honduras", notes: "Cris
 m = d.coffees.build(name: "Roast 11", roast: 3, origin: "Guatemala", notes: "Velvety undertones", stars: 3)
 d.coffees.build(name: "Roast 12", roast: 5, origin: "Arkansas", notes: "No", stars: 1)
 d.save
+n = e.coffees.build(name: "Roast 13", roast: 3, origin: "Hawaii", notes: "Sweet, hints of Caramel", stars: 4)
+o = e.coffees.build(name: "Roast 14", roast: 4, origin: "Vietnam", notes: "Smooooth Operator", stars: 5)
+e.coffees.build(name: "Roast 15", roast: 5, origin: "Mexico", notes: "Syrupy goodness", stars: 5)
+e.save
 
-User.create(name: "Jim", password: "password")
-User.create(name: "Jill", password: "password")
-User.create(name: "Ben", password: "password")
-User.create(name: "Jen", password: "password")
+User.create(name: "Jim", password: "password!")
+User.create(name: "Jill", password: "password!")
+User.create(name: "Ben", password: "password!")
+User.create(name: "Jen", password: "password!")
 
 f.reviews.create(content: "Review Number 1", user_id: 1)
 f.reviews.create(content: "Review Number 2", user_id: 3)
@@ -50,3 +54,8 @@ l.reviews.create(content: "Review Number 14", user_id: 3)
 m.reviews.create(content: "Review Number 15", user_id: 2)
 m.reviews.create(content: "Review Number 16", user_id: 1)
  
+n.reviews.create(content: "Review Number 17", user_id: 2)
+n.reviews.create(content: "Review Number 18", user_id: 4)
+
+o.reviews.create(content: "Review Number 19", user_id: 3)
+o.reviews.create(content: "Review Number 20", user_id: 1)
