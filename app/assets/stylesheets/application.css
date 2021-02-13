@@ -31,29 +31,12 @@
     color: red;
  }
 
-.custom_wrapper {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-   align-items: stretch;
-   align-content: stretch;
-   justify-content: space-between;
-}
+.body_color {
+   background-color: #ffbf80;
+   padding-bottom: 40%;
 
-.main_body {
-   order: 2;
-   flex-grow: 6;
-   background-color: 	 #ffbf80;
 }
-
-.left_sidebar {
-   width: 13%;
-   order: 1;
-   background-color: 	#4f2a17;
-}
-
-.right_sidebar {
-   width: 13%;
-   order: 3;
-   background-color: 	#4f2a17;
+.sidebar_color {
+   background-color: #4f2a17;
+   padding-bottom: 40%
 }

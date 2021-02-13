@@ -13,18 +13,19 @@
   <body>
     
     <%= render partial: "layouts/navbar" %>
-    <div class="custom_wrapper">
+    <div class="container-fluid">
+      <div class="row row_height">
       
-      <div class="left_sidebar">
-      </div>
+        <div class="col sidebar_color">
+        </div>
 
-      
-      <div class="main_body">
-        <%= content %>
-      </div>
+        
+        <div class="col-sm-8 body_color">
+          <%= content %>
+        </div>
 
-      
-      <div class="right_sidebar">
+        <div class="col sidebar_color">
+        </div>
       </div>
     </div>   
     </body>
