@@ -1,3 +1,14 @@
+def find_stars_average(coffee)
+    if coffee.reviews.any?
+        star_sum = 0
+        coffee.reviews.each do |review|
+            star_sum += review.stars
+        end
+        coffee.stars = star_sum / coffee.reviews.count
+        coffee.save
+    end
+end
+
 a = Brand.create(name: "Barstucks", location: "Seattle")
 b = Brand.create(name: "Dunkin", location: "Canton")
 c = Brand.create(name: "Tim Horton's", location: "Oakville")
@@ -32,30 +43,40 @@ User.create(name: "Jen", password: "password!")
 
 f.reviews.create(content: "Review Number 1", user_id: 1, stars: 4)
 f.reviews.create(content: "Review Number 2", user_id: 3, stars: 3)
+find_stars_average(f)
 
 g.reviews.create(content: "Review Number 3", user_id: 2, stars: 4)
 g.reviews.create(content: "Review Number 4", user_id: 4, stars: 2)
+find_stars_average(g)
 
 h.reviews.create(content: "Review Number 5", user_id: 1, stars: 1)
 h.reviews.create(content: "Review Number 6", user_id: 2, stars: 4)
+find_stars_average(h)
 
 i.reviews.create(content: "Review Number 7", user_id: 3, stars: 4)
 i.reviews.create(content: "Review Number 8", user_id: 4, stars: 4)
+find_stars_average(i)
 
 j.reviews.create(content: "Review Number 9", user_id: 1, stars: 5)
 j.reviews.create(content: "Review Number 10", user_id: 4, stars: 1)
+find_stars_average(j)
 
 k.reviews.create(content: "Review Number 11", user_id: 2, stars: 2)
 k.reviews.create(content: "Review Number 12", user_id: 3, stars: 3)
+find_stars_average(k)
 
 l.reviews.create(content: "Review Number 13", user_id: 4, stars: 2)
 l.reviews.create(content: "Review Number 14", user_id: 3, stars: 1)
+find_stars_average(l)
 
 m.reviews.create(content: "Review Number 15", user_id: 2, stars: 5)
 m.reviews.create(content: "Review Number 16", user_id: 1, stars: 4)
+find_stars_average(m)
  
 n.reviews.create(content: "Review Number 17", user_id: 2, stars: 3)
 n.reviews.create(content: "Review Number 18", user_id: 4, stars: 5)
+find_stars_average(n)
 
 o.reviews.create(content: "Review Number 19", user_id: 3, stars: 2)
 o.reviews.create(content: "Review Number 20", user_id: 1, stars: 1)
+find_stars_average(o)
