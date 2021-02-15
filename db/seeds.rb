@@ -9,11 +9,11 @@ def find_stars_average(coffee)
     end
 end
 
-a = Brand.create(name: "Barstucks", location: "Seattle")
-b = Brand.create(name: "Dunkin", location: "Canton")
-c = Brand.create(name: "Tim Horton's", location: "Oakville")
-d = Brand.create(name: "Bigfoot Java", location: "Pacific")
-e = Brand.create(name: "Diva", location: "Seattle")
+a = Brand.create(name: "Starbucks", location: "Seattle, WA")
+b = Brand.create(name: "Dunkin", location: "Canton, MA")
+c = Brand.create(name: "Tim Horton's", location: "Oakville, ON")
+d = Brand.create(name: "Bigfoot Java", location: "Pacific, WA")
+e = Brand.create(name: "Diva Espresso", location: "Seattle, WA")
 
 f = a.coffees.build(name: "Roast 1", roast: 1, origin: "Ethiopia", notes: "Tasty", stars: 4)
 g = a.coffees.build(name: "Roast 2", roast: 3, origin: "Brazil", notes: "Kinda Tasty", stars: 3)
