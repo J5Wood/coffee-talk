@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :edit]
   end
   
-  resources :reviews, only: [:create, :update]
+  resources :reviews, only: [:create, :update, :destroy]
 
   resources :brands do
     resources :coffees, only: [:new, :show]

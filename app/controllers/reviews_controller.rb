@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :require_login
-    before_action :find_review, only: [:edit, :update]
+    before_action :find_review, only: [:edit, :update, :destroy]
     before_action :find_coffee, only: [:edit, :new]
 
     def new
@@ -30,6 +30,11 @@ class ReviewsController < ApplicationController
             @coffee = Coffee.find_by(id: params[:review][:coffee_id])
             render :edit
         end 
+    end
+
+    def destroy
+        @review.destroy
+        redirect_to coffee_path(@review.coffee)
     end
 
     private

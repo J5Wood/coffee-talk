@@ -10,6 +10,7 @@
         <ul>
         <% coffee.user_reviews(@user).each do |review| %>
             <li><%= review.content %> - <%= render partial: "/reviews/stars", locals: {review: review} if !!review.stars %></li>
+            <%= user_review_options(review, coffee) %>
         <% end %>
         </ul>
         <br>

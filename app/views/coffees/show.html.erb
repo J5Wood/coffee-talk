@@ -12,7 +12,8 @@
 <ul>
     <% @reviews.each do |review| %>
         <li><%= review.content %> - <%= render partial: "/reviews/stars", locals: {review: review} if !!review.stars %></li>
-        - <%= review.user.name %> <%= link_to " Edit Review", edit_coffee_review_path(@coffee, review), class: "badge badge-dark border border-danger" if review.user_id == session[:user_id] %>
+        - <%= review.user.name %><br>
+        <%= user_review_options(review, @coffee) %>
         <br>
         <br>
     <% end %>
