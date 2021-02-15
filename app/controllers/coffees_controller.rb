@@ -24,7 +24,6 @@ class CoffeesController < ApplicationController
     end
 
     def update
-        set_star_average
         @coffee.update(coffee_params)
         save_coffee
     end
@@ -59,16 +58,6 @@ class CoffeesController < ApplicationController
             find_brands
             @coffee.build_brand
             render :new
-        end
-    end
-
-    def set_star_average
-        if @coffee.reviews.any?
-            star_sum = params[:coffee][:stars].to_i
-            @coffee.reviews.each do |review|
-                star_sum += review.stars
-            end
-            params[:coffee][:stars] = star_sum / (@coffee.reviews.count + 1)
         end
     end
 end
