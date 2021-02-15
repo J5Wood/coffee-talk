@@ -2,6 +2,29 @@
 
     <%= f.text_area :content %><br>
 
+    <h5>Stars</h5>
+    <div class="star_buttons">
+    &#11088;<br>
+    <%= f.radio_button :stars, 1 %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
+    <%= f.radio_button :stars, 2 %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
+    <%= f.radio_button :stars, 3 %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
+    <%= f.radio_button :stars, 4 %>
+    </div>
+    <div class="star_buttons">
+    &#11088;<br>
+    <%= f.radio_button :stars, 5 %>
+    </div>
+    <br><br><br>
+
     <%= f.hidden_field :coffee_id, value: coffee.id %>
 
     <%= f.submit class: "btn btn-dark" %>

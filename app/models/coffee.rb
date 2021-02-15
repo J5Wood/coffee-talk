@@ -7,15 +7,10 @@ class Coffee < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :users, through: :reviews
 
+    
     def roast_validator
         if roast.blank? || !roast.to_s.match(/[12345]/) || roast.to_s.length != 1
             self.errors.add(:roast, 'Level Required')
-        end
-    end
-
-    def stars_validator
-        if stars.blank? || !stars.to_s.match(/[12345]/) || stars.to_s.length != 1
-            self.errors.add(:stars, 'Required')
         end
     end
 
@@ -40,4 +35,5 @@ class Coffee < ApplicationRecord
     def self.top_rated
         order(stars: :desc).limit(5)
     end
+
 end

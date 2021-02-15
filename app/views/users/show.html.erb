@@ -9,7 +9,7 @@
         <li><%= link_to coffee.name, coffee_path(coffee), class: "badge badge-pill badge-dark" %></li>
         <ul>
         <% coffee.user_reviews(@user).each do |review| %>
-            <li><%= review.content %></li>
+            <li><%= review.content %> - <%= render partial: "/reviews/stars", locals: {review: review} if !!review.stars %></li>
         <% end %>
         </ul>
         <br>
