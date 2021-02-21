@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   end
   
   resources :users, except: :index
+
+  match '*unmatched', to: 'application#route_not_found', via: :all
+
 end
