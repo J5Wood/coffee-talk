@@ -2,8 +2,8 @@ class ReviewsController < ApplicationController
     before_action :require_login
     before_action :find_review, only: [:edit, :update, :destroy]
     before_action :find_coffee, only: [:edit, :new]
-    before_action :verify_coffee, only: [:edit, :update, :destroy]
-    before_action :verify_review, only: [:edit, :new]
+    before_action :verify_review, only: [:edit, :update, :destroy]
+    before_action :verify_coffee, only: [:edit, :new]
 
     def new
         @review = Review.new
@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
     end
 
     def edit
+        verify_correct_review
     end
 
     def update
@@ -58,6 +59,12 @@ class ReviewsController < ApplicationController
     def verify_review
         if !@review
             redirect_to coffees_path
+        end
+    end
+
+    def verify_correct_review
+        if @review.user_id != session[:user_id] || @review.coffee_id != params[:coffee_id].to_i
+            redirect_to coffee_path(@coffee)
         end
     end
 
