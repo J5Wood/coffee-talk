@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
     before_action :require_login
     before_action :find_review, only: [:edit, :update, :destroy]
     before_action :find_coffee, only: [:edit, :new]
+    before_action :verify_coffee, only: [:edit, :update, :destroy]
+    before_action :verify_review, only: [:edit, :new]
 
     def new
         @review = Review.new
@@ -43,8 +45,20 @@ class ReviewsController < ApplicationController
         @coffee = Coffee.find_by(id: params[:coffee_id])
     end
 
+    def verify_coffee
+        if !@coffee
+            redirect_to coffees_path
+        end
+    end
+
     def find_review
         @review = Review.find_by(id: params[:id])
+    end
+
+    def verify_review
+        if !@review
+            redirect_to coffees_path
+        end
     end
 
     def review_params

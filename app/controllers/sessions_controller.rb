@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
                 flash[:alert] = "An Unexpected Error Occurred. Please Try Again."
                 render :new
             end
+        elsif !params[:user]
+            redirect_to '/'
         else
             user = User.find_by(name: params[:user][:name])
             if !!user && user.authenticate(params[:user][:password])

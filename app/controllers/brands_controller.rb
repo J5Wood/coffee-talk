@@ -1,6 +1,7 @@
 class BrandsController < ApplicationController
     before_action :require_login
     before_action :find_brand, only: [:edit, :update, :show, :destroy]
+    before_action :verify_brand, only: [:edit, :update, :show, :destroy]
 
     def index
         @brands = Brand.all
@@ -47,5 +48,11 @@ class BrandsController < ApplicationController
 
     def find_brand
         @brand = Brand.find_by(id: params[:id])
+    end
+
+    def verify_brand
+        if !@brand
+            redirect_to brands_path
+        end
     end
 end

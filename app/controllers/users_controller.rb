@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     def find_and_verify_current_user
         @user = User.find_by(id: params[:id])
-        if @user.id != session[:user_id]
+        if !@user || @user.id != session[:user_id]
             redirect_to "/"
         end
     end

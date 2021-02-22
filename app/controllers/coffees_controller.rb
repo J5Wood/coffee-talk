@@ -1,6 +1,7 @@
 class CoffeesController < ApplicationController
     before_action :require_login
     before_action :find_coffee, only: [:edit, :update, :show, :destroy]
+    before_action :verify_coffee, only: [:edit, :update, :show, :destroy]
 
     def index
         @coffees = Coffee.all
@@ -41,6 +42,12 @@ class CoffeesController < ApplicationController
 
     def find_coffee
         @coffee = Coffee.find_by(id: params[:id])
+    end
+
+    def verify_coffee
+        if !@coffee
+            redirect_to coffees_path
+        end
     end
 
     def find_brands
