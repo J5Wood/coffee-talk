@@ -36,4 +36,15 @@ class Coffee < ApplicationRecord
         order(stars: :desc).limit(5)
     end
 
+    def update_stars
+        if reviews.count > 0
+            star_sum = 0
+            reviews.each do |review|
+                star_sum += review.stars
+            end
+            self.stars = star_sum / reviews.count
+            self.save
+        end
+    end
+
 end
