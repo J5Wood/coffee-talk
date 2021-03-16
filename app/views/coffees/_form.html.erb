@@ -41,8 +41,7 @@
     <%= f.label :notes %>
     <%= f.text_area :notes %><br>
     <br>
-     
-    <%= render partial: "stars_form", locals: {f: f} if params[:action] == "new" %>
+    <%= render partial: "stars_form", locals: {f: f} if params[:action] == "new" || params[:action] == "create" %>
     
     <%= f.submit class: "btn btn-dark" %>
 <% end %>
