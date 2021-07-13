@@ -11,7 +11,8 @@
 <br>
 <ul>
     <% @reviews.each do |review| %>
-        <li><%= review.content %> - <%= render partial: "/reviews/stars", locals: {review: review} if !!review.stars %></li>
+        <%= render partial: "/reviews/stars", locals: {review: review} if !!review.stars %>
+        <p style="text-indent: 20px"> - <%= review.content %></p>
         - <%= review.user.name %><br>
         <%= user_review_options(review, @coffee) %>
         <br>

@@ -8,10 +8,12 @@
 <ul>
     <% @coffees.each do |coffee| %>
         <li><h4><%= link_to coffee.name, brand_coffee_path(@brand, coffee), class: "badge badge-pill badge-dark" %> - <%= render partial: "coffees/stars", locals: {coffee: coffee} %></h4></li>
-        <h6>Reviews:</h6>
+        <br>
+        <h6><b>Reviews:</b></h6>
         <ul>
             <% coffee.reviews.each do |review| %>
-                <li><%= review.content %> - <%= render partial: "/reviews/stars", locals: {review: review} if !!review.stars %></li>
+                <%= render partial: "/reviews/stars", locals: {review: review} if !!review.stars %>
+                <p style="text-indent: 20px"> - <%= review.content %></p>
                 - <%= review.user.name %><br>
                 <%= user_review_options(review, coffee) %>
                 <br><br>
