@@ -1,8 +1,7 @@
-<h1><%= @brand.name %> - <%= render partial: "brands/stars", locals: {rating: @brand.average_rating} %></h1>
+<h1><b><%= @brand.name %> - <%= render partial: "brands/stars", locals: {rating: @brand.average_rating} %></b></h1>
 <h2><%= @brand.location %></h2>
 <br>
-<h3>Coffees</h3>
-<br>
+<h3><b>Coffees:</b></h3>
 <h5><%= link_to "Add New #{@brand.name} Coffee", new_brand_coffee_path(@brand), class: "badge badge-dark border border-danger" %></h5>
 <br>
 <ul>
