@@ -2,9 +2,17 @@
 
 Coffee Talk is a web based app where you can read and post reviews of coffee beans.
 
-## Dependencies
-* Ruby v2.6.1
-* Rails v6.1.1
+
+![Coffee Talk Screenshot](./public/coffee-talk-photo.png)
+
+
+## Features
+* Built with Ruby on Rails
+* Implemented user signup and login with OAuth, and also with standard username/password credentials.
+* Incorporates nested resource creation
+* Follows RESTful conventions
+* Full CRUD capabilities for resources
+
 
 ## To Install
 1. Fork and clone this repository.
@@ -12,6 +20,7 @@ Coffee Talk is a web based app where you can read and post reviews of coffee bea
 3. Run `rails db:migrate` in your terminal
 4. Run `rails s` to start app on rails server.
 5. Navigate to http://localhost:3000
+
 
 ## Contributions
 Any contributions are welcome. Please submit a pull request to do so.
