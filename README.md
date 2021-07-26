@@ -6,6 +6,11 @@ Coffee Talk is a web based app where you can read and post reviews of coffee bea
 ![Coffee Talk Screenshot](./public/coffee-talk-photo.png)
 
 
+## Demo
+
+[Video Walkthrough](https://drive.google.com/file/d/1MQtZyW62s8mWT__bhIQFIbvZNE7Twq0-/view?usp=sharing)
+
+
 ## Features
 * Built with Ruby on Rails
 * Implemented user signup and login with OAuth, and also with standard username/password credentials.
